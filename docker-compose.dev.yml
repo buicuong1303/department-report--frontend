@@ -1,0 +1,15 @@
+version: '3.7'
+services: 
+  department-report-frontend:
+    container_name: department-report-frontend-development
+    image: department-report-frontend-development
+    build: 
+      context: .
+      target: development
+    volumes: 
+      - ./:/usr/src/app/
+    ports:
+      - 4002:4002
+    stdin_open: true
+    # tty: true
+    command: yarn run start:dev

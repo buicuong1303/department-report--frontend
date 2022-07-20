@@ -1,0 +1,30 @@
+#pointer0, #pointer1, #pointer2 {
+  width: 150px;
+  height: 40px;
+  position: relative;
+  color:#353ead;
+  background-color: currentColor;
+  padding-left: 32px;
+}
+#pointer1:after, #pointer2:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-left: 20px solid #f4f6f8;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
+#pointer0:before, #pointer1:before {
+  content: "";
+  position: absolute;
+  right: -20px;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-left: 20px solid currentColor;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}

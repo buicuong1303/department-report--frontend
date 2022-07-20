@@ -1,0 +1,27 @@
+# gitignore
+*.env
+
+# dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# enviroment
+.env.production
+docker-compose.prod.yml
+production
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# IDE
+.vscode

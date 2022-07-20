@@ -1,0 +1,123 @@
+
+//vars
+$backgroundColor: #ffffff;
+$color: #3f51b5;
+
+//config
+$menu-items: 4;
+
+%ball {
+  border: solid $color 2px;
+  background: $backgroundColor;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  padding: 5px;
+  bottom: 24px;
+  color: $color;
+  text-align: center;
+  line-height: 50px;
+  transform: translate3d(0,0,0);
+  transition: all 300ms !important;
+}
+.menu-open {
+  display: none;
+}
+.menu-item {
+  @extend %ball;
+}
+
+.hamburger {
+  $width: 20px;
+  $height: 3px;
+  width: $width;
+  height: $height;
+  background: $color;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -$width/2;
+  margin-top: -$height/2;
+  transition: transform 300ms;
+}
+$hamburger-spacing: 8px;
+.hamburger-1 {
+  transform: translate3d(0,-$hamburger-spacing,0);
+}
+.hamburger-2 {
+  transform: translate3d(0,0,0);
+}
+.hamburger-3 {
+  transform: translate3d(0,$hamburger-spacing,0);
+}
+.menu-open:checked+.menu-open-button {
+  .hamburger-1 {
+    transform: translate3d(0,0,0) rotate(45deg); 
+  }
+  .hamburger-2 {
+    transform: translate3d(0,0,0) scale(0.1,1);
+  }
+  .hamburger-3 {
+    transform: translate3d(0,0,0) rotate(-45deg); 
+  }
+}
+.menu {
+  position: fixed;
+  right: 70px;
+  bottom: 0px;
+  box-sizing: border-box;
+  font-size: 25px;
+}
+
+.menu-item {
+  font-size: 25px;
+  outline: unset !important;
+  cursor: pointer;
+  &:hover {
+    background: $color;
+    color: $backgroundColor;
+    transition: all 300ms !important;
+  }
+  @for $i from 1 through $menu-items {
+    &:nth-child(#{$i+2}) {
+      transition-duration: 300ms;
+    }
+  }
+}
+
+.menu-item-active {
+  background: $color;
+  color: $backgroundColor;
+}
+
+.menu-open-button {
+  @extend %ball;
+  z-index: 2;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transition-duration: 300ms;
+  transform: scale(1.1,1.1) translate3d(0,0,0);
+  cursor: pointer;
+}
+.menu-open-button:hover {
+  transform: scale(1.2,1.2) translate3d(0,0,0);
+}
+.menu-open:checked+.menu-open-button {
+  transition-timing-function: linear;
+  transition-duration: 300ms;
+  transform: scale(0.8,0.8) translate3d(0,0,0);
+}
+.menu-open:checked+.menu-open-button:hover {
+  transform: scale(0.9,0.9) translate3d(0,0,0);
+}
+
+.menu-open:checked~.menu-item {
+  transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+  @for $i from 1 through $menu-items {
+    &:nth-child(#{$i+2}) {
+      transition-duration: 100ms+(100ms*$i);
+      transform: translate3d(0,-70px*$i,0);
+    }
+  }
+}

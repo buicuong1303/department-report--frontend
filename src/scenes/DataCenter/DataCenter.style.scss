@@ -1,0 +1,18 @@
+.MuiTableCell-head{
+  padding: 10px 15px;
+  white-space: nowrap;
+}
+.MuiTableCell-root{
+  height: 53px;
+  padding: 0px 5px;
+}
+
+.MuiPopover-paper::-webkit-scrollbar {
+  width: 5px;
+}
+.MuiTableBody-root > .MuiTableRow-root:hover{
+  background-color: rgb(220, 220, 220);
+}
+.MuiTable-root{
+  font-size: 13px;
+}

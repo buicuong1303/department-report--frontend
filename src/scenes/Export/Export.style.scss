@@ -1,0 +1,10 @@
+button:disabled,
+button[disabled] {
+  pointer-events: unset !important;
+  cursor: not-allowed !important;
+  opacity: .3;
+  // border: 1px solid #999999;
+}
+.MuiTabs-indicator{
+  visibility: hidden;
+}
